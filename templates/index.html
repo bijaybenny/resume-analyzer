@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="hero">
+
+    <div class="hero-content">
+        <h1>AI Resume Analyzer</h1>
+        <p>Analyze resumes against job descriptions with AI insights.</p>
+    </div>
+
+    <div class="form-container">
+
+        <form action="/analyze" method="POST" enctype="multipart/form-data" class="card form-card" onsubmit="showLoader()">
+
+            <label>Upload Resume (PDF)</label>
+            <input type="file" name="resume" required>
+
+            <label>Job Description</label>
+            <textarea name="job_description" rows="6" placeholder="Paste job description here..." required></textarea>
+
+            <button type="submit">Analyze Resume</button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- Loader -->
+<div id="loader" class="loader-overlay">
+    <div class="loader"></div>
+    <p>Analyzing Resume...</p>
+</div>
+
+<script>
+function showLoader() {
+    document.getElementById("loader").style.display = "flex";
+}
+</script>
+
+</body>
+</html>

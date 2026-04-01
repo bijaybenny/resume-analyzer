@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analysis Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Analysis Result</h1>
+
+    <!-- ✅ SCORE WITH DYNAMIC FILL -->
+    <div class="card score-card fade-in">
+        <h2>Match Score</h2>
+        <div class="score-circle" style="--score: {{ score }}">
+            <span>{{ score }}%</span>
+        </div>
+    </div>
+
+    <div class="card fade-in">
+        <h3>Feedback</h3>
+        <p>{{ feedback }}</p>
+    </div>
+
+    <div class="card fade-in">
+        <h3>Recommendations</h3>
+        <p>{{ recommendations }}</p>
+    </div>
+
+    <div class="card skills fade-in">
+        <h3>Skills Overview</h3>
+
+        <div class="skill-group">
+            <p><strong>Matched</strong></p>
+            <div class="chips">
+                {% for skill in matched %}
+                    <span class="chip match">{{ skill.title() }}</span>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="skill-group">
+            <p><strong>Missing</strong></p>
+            <div class="chips">
+                {% for skill in missing %}
+                    <span class="chip missing">{{ skill.title() }}</span>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="skill-group">
+            <p><strong>Additional</strong></p>
+            <div class="chips">
+                {% for skill in additional %}
+                    <span class="chip extra">{{ skill.title() }}</span>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <a href="/" class="back-btn">Go Back</a>
+
+</div>
+
+</body>
+</html>
