@@ -113,7 +113,7 @@ resume-analyzer/
 
 ## 👤 Author
 
-**Bijay Benny**
+**Bijay Benny P**
 
 ---
 
